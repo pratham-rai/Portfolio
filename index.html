@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Primary Meta Tags -->
+  <title>Pratham Rai | Full-Stack Web Developer & Engineer</title>
+  <meta name="title" content="Pratham Rai | Full-Stack Web Developer & Engineer">
+  <meta name="description" content="Portfolio of Pratham Rai, an Information Science & Engineering graduate and Full-Stack Developer specializing in building modern web apps (MERN/Next.js) and PWAs. Discover projects like Aisira and The Courtyard.">
+  <meta name="keywords" content="Pratham Rai, Web Developer, Full-Stack Developer, MERN Stack, React.js, Next.js, Information Science Engineer, Mangalore, Portfolio, Software Engineer">
+  <meta name="author" content="Pratham Rai">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://prathamrai.dev/">
+  <meta property="og:title" content="Pratham Rai | Full-Stack Web Developer & Engineer">
+  <meta property="og:description" content="Portfolio of Pratham Rai, an Information Science & Engineering graduate and Full-Stack Developer specializing in MERN/Next.js.">
+  <meta property="og:image" content="">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:title" content="Pratham Rai | Full-Stack Web Developer & Engineer">
+  <meta property="twitter:description" content="Portfolio of Pratham Rai, an Information Science & Engineering graduate and Full-Stack Developer.">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="dark">
+
+  <!-- Interactive Background Canvas -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- Glowing Accents -->
+  <div class="bg-glow-1"></div>
+  <div class="bg-glow-2"></div>
+
+  <!-- Custom Cursor Trail -->
+  <div class="cursor-trail" id="cursor-trail"></div>
+  <div class="cursor-outline" id="cursor-outline"></div>
+
+  <!-- Header Section -->
+  <header id="header">
+    <div class="container nav-container">
+      <a href="#" class="logo cursor-hover-target">
+        PRATHAM RAI<span class="logo-dot"></span>
+      </a>
+      
+      <nav class="nav-links">
+        <a href="#about" class="nav-item cursor-hover-target">About</a>
+        <a href="#skills" class="nav-item cursor-hover-target">Skills</a>
+        <a href="#projects" class="nav-item cursor-hover-target">Projects</a>
+        <a href="#experience" class="nav-item cursor-hover-target">Experience</a>
+        <a href="#honors" class="nav-item cursor-hover-target">Activities</a>
+        <a href="#contact" class="nav-item cursor-hover-target">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="theme-toggle-btn cursor-hover-target" id="theme-toggle" aria-label="Toggle Theme">
+          <svg class="sun" viewBox="0 0 24 24"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.36c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z"/></svg>
+          <svg class="moon" viewBox="0 0 24 24"><path d="M12.3 22c5.3 0 9.7-4.4 9.7-9.7 0-1.7-.5-3.4-1.3-4.8-.4-.7-1.3-.8-1.8-.2-.3.3-.4.7-.4 1.1.2 2.2-.4 4.4-1.9 6-1.5 1.6-3.7 2.4-6 2.2-1.7-.2-3.3-1-4.4-2.3-.4-.5-1.2-.4-1.6.2-.8 1.4-1.3 3.1-1.3 4.8 0 5.3 4.4 9.7 9.7 9.7zm-6-4.6c.8.9 1.8 1.6 2.9 2 1-.3 2.1-.5 3.1-.5 2.6 0 5.1 1.1 6.8 3-1 .5-2.2.8-3.5.8-4.3-.1-7.7-3.5-7.7-7.7 0-1.3.3-2.5.8-3.5 1.9 1.7 3 4.2 3 6.8 0 1-.2 2.1-.5 3.1z"/></svg>
+        </button>
+        <a href="#contact" class="btn btn-secondary cursor-hover-target" style="padding: 10px 20px; font-size: 0.85rem; border-radius: 50px;">Hire Me</a>
+        <div class="hamburger cursor-hover-target" id="hamburger-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Overlay -->
+  <div class="mobile-overlay" id="mobile-overlay"></div>
+  <nav class="mobile-nav" id="mobile-nav">
+    <a href="#about" class="nav-item cursor-hover-target">About</a>
+    <a href="#skills" class="nav-item cursor-hover-target">Skills</a>
+    <a href="#projects" class="nav-item cursor-hover-target">Projects</a>
+    <a href="#experience" class="nav-item cursor-hover-target">Experience</a>
+    <a href="#honors" class="nav-item cursor-hover-target">Activities</a>
+    <a href="#contact" class="nav-item cursor-hover-target">Contact</a>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="container hero-grid">
+      <div class="hero-content scroll-reveal active">
+        <span class="hero-subtitle">FULL-STACK DEVELOPER · OPEN TO WORK & FREELANCE</span>
+        <h1 class="hero-title">
+          Hi, I am <br>
+          <span class="text-gradient">Pratham Rai</span>
+        </h1>
+        <p class="hero-description">
+          A motivated <strong>Information Science &amp; Engineering Graduate</strong> and <strong>Full-Stack Web Developer</strong> open to full-time roles and freelance projects. I build personalized websites, scalable web applications, progressive web apps (PWAs), and production-ready APIs — tailored to your unique vision.
+        </p>
+        <div class="hero-cta">
+          <a href="#projects" class="btn btn-primary cursor-hover-target">
+            View My Work
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+          <a href="#contact" class="btn btn-secondary cursor-hover-target">Hire Me</a>
+        </div>
+      </div>
+      <div class="hero-visual scroll-reveal active">
+        <div class="art-frame">
+          <img src="assets/hero_portrait.png" alt="Pratham Rai Portrait" id="hero-art" class="art-image">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="section-padding" id="about">
+    <div class="container">
+      <div class="section-header scroll-reveal">
+        <span class="badge">Who I Am</span>
+        <h2 class="section-title">Bridging Code and Creativity</h2>
+        <p class="section-desc">Get a glimpse into my technical approach and professional philosophy.</p>
+      </div>
+
+      <div class="about-grid">
+        <!-- Terminal Style Card -->
+        <div class="glass-card terminal-card scroll-reveal">
+          <div class="terminal-header">
+            <div class="terminal-dots">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div class="terminal-tab-name">pratham.sh</div>
+          </div>
+          <div class="terminal-body">
+            <div class="terminal-line">
+              <span class="terminal-prompt">$</span>
+              <span>cat about_me.json</span>
+            </div>
+            <div class="terminal-line" style="margin-left: 20px; display: block;">
+              <span>{</span><br>
+              <span style="padding-left: 20px;"><span class="terminal-keyword">"name"</span>: <span class="terminal-string">"Pratham Rai"</span>,</span><br>
+              <span style="padding-left: 20px;"><span class="terminal-keyword">"degree"</span>: <span class="terminal-string">"B.E. Information Science & Engineering"</span>,</span><br>
+              <span style="padding-left: 20px;"><span class="terminal-keyword">"college"</span>: <span class="terminal-string">"AJ Institute of Engineering & Technology, Mangalore"</span>,</span><br>
+              <span style="padding-left: 20px;"><span class="terminal-keyword">"graduationYear"</span>: <span class="terminal-string">"2026"</span>,</span><br>
+              <span style="padding-left: 20px;"><span class="terminal-keyword">"internship"</span>: <span class="terminal-string">"16-Week MERN program at SuprMentr Technologies"</span>,</span><br>
+              <span style="padding-left: 20px;"><span class="terminal-keyword">"focus"</span>: <span class="terminal-string">"Scalable REST APIs, robust PWAs, responsive frontend design"</span>,</span><br>
+              <span style="padding-left: 20px;"><span class="terminal-keyword">"specialSkills"</span>: <span class="terminal-string">"Yakshagana Artist & YouTube Creator"</span></span><br>
+              <span>}</span>
+            </div>
+            <div class="terminal-line" style="margin-top: 24px;">
+              <span class="terminal-prompt">$</span>
+              <span class="terminal-keyword">sudo</span><span> init --passion</span>
+            </div>
+            <div class="terminal-line">
+              <span class="terminal-prompt" style="color: #ef4444;">[INFO]</span>
+              <span style="color: var(--text-primary);">"I am a self-driven, detail-oriented engineering graduate eager to leverage modern development ecosystems, REST services, and generative AI platforms to construct state-of-the-art products."</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Professional Bio Text -->
+        <div class="scroll-reveal">
+          <h3 style="font-size: 1.8rem; margin-bottom: 20px;">I craft scalable web architectures and dynamic user experiences.</h3>
+          <p style="color: var(--text-secondary); margin-bottom: 20px;">
+            Hailing from Mangalore, Karnataka, I hold a <strong>Bachelor of Engineering in Information Science &amp; Engineering</strong> (2022 – 2026). My technical training spans across core programming paradigms to production-level application deployment.
+          </p>
+          <p style="color: var(--text-secondary); margin-bottom: 30px;">
+            I specialize in constructing modern web systems using React.js, Next.js, Node.js, Express, and MongoDB. In addition to coding, I bring a unique creative flair as a professional <strong>Yakshagana Artist</strong> (an ancient traditional theater art form of Karnataka, recognized with a State Award) and a travel <strong>YouTube Content Creator</strong>. This rare fusion of deep technical discipline and artistic expression empowers me to deliver applications that are not just structurally sound, but visually captivating and engaging.
+          </p>
+          <div style="display: flex; gap: 20px; align-items: center; flex-wrap: wrap;">
+            <a href="assets/Pratham_Rai_Resume.pdf" download="Pratham_Rai_Resume.pdf" class="btn btn-primary cursor-hover-target">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"></path><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+              Print Resume (PDF)
+            </a>
+            <a href="#contact" class="btn btn-secondary cursor-hover-target">Work With Me</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Metrics Count -->
+      <div class="about-stats scroll-reveal">
+        <div class="glass-card stat-item">
+          <div class="stat-num">16+</div>
+          <div class="stat-label">Weeks Industry Training</div>
+        </div>
+        <div class="glass-card stat-item">
+          <div class="stat-num">10+</div>
+          <div class="stat-label">Core Web Frameworks</div>
+        </div>
+        <div class="glass-card stat-item">
+          <div class="stat-num">50k+</div>
+          <div class="stat-label">Lines of Code Deployed</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section class="section-padding" id="skills" style="background: var(--bg-secondary);">
+    <div class="container">
+      <div class="section-header scroll-reveal">
+        <span class="badge">My Toolkit</span>
+        <h2 class="section-title">Technical Expertise</h2>
+        <p class="section-desc">A detailed overview of the languages, frameworks, and utilities I leverage to bring concepts to life.</p>
+      </div>
+
+      <div class="skills-container">
+        <!-- Filter Tabs -->
+        <div class="skills-filter scroll-reveal">
+          <button class="filter-btn active cursor-hover-target" data-filter="all">All Skills</button>
+          <button class="filter-btn cursor-hover-target" data-filter="languages">Languages & Web</button>
+          <button class="filter-btn cursor-hover-target" data-filter="frameworks">Frameworks & DB</button>
+          <button class="filter-btn cursor-hover-target" data-filter="tools">Tools & AI</button>
+        </div>
+
+        <!-- Skills Grid -->
+        <div class="skills-grid scroll-reveal" id="skills-display-grid">
+          <!-- Languages -->
+          <div class="glass-card skill-card" data-category="languages">
+            <div class="skill-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16.5 9.4 7.55 4.24a1.79 1.79 0 0 0-2.5 1.5V18.26a1.79 1.79 0 0 0 2.5 1.5L16.5 14.6a1.79 1.79 0 0 0 0-3.2z"/></svg>
+            </div>
+            <span class="skill-name">JavaScript ES6+</span>
+          </div>
+          <div class="glass-card skill-card" data-category="languages">
+            <div class="skill-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            </div>
+            <span class="skill-name">HTML5 / CSS3</span>
+          </div>
+          <div class="glass-card skill-card" data-category="languages">
+            <div class="skill-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 19.5A2.5 2.5 0 0 0 6.5 22H20M4 19.5v-15A2.5 2.5 0 0 1 6.5 2V4h12v16H6.5a2.5 2.5 0 0 1-2.5-2.5z"/></svg>
+            </div>
+            <span class="skill-name">C / C++</span>
+          </div>
+          <div class="glass-card skill-card" data-category="languages">
+            <div class="skill-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+            </div>
+            <span class="skill-name">Java</span>
+          </div>
+          <div class="glass-card skill-card" data-category="languages">
+            <div class="skill-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <span class="skill-name">Python</span>
+          </div>
+
+          <!-- Frameworks & DB -->
+          <div class="glass-card skill-card" data-category="frameworks">
+            <div class="skill-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"/></svg>
+            </div>
+            <span class="skill-name">React.js</span>
+          </div>
+          <div class="glass-card skill-card" data-category="frameworks">
+            <div class="skill-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v6c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 11v6c0 1.66 4 3 9 3s9-1.34 9-3v-6"/></svg>
+            </div>
+            <span class="skill-name">Node & Express</span>
+          </div>
+          <div class="glass-card skill-card" data-category="frameworks">
+            <div class="skill-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            </div>
+            <span class="skill-name">Next.js & Vite</span>
+          </div>
+          <div class="glass-card skill-card" data-category="frameworks">
+            <div class="skill-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 3h16a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zM4 13h16a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2z"/></svg>
+            </div>
+            <span class="skill-name">MongoDB Atlas</span>
+          </div>
+          <div class="glass-card skill-card" data-category="frameworks">
+            <div class="skill-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
+            </div>
+            <span class="skill-name">Leaflet.js & Map</span>
+          </div>
+
+          <!-- Tools & AI -->
+          <div class="glass-card skill-card" data-category="tools">
+            <div class="skill-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            </div>
+            <span class="skill-name">Git & GitHub</span>
+          </div>
+          <div class="glass-card skill-card" data-category="tools">
+            <div class="skill-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+            </div>
+            <span class="skill-name">Vercel & Render</span>
+          </div>
+          <div class="glass-card skill-card" data-category="tools">
+            <div class="skill-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </div>
+            <span class="skill-name">JWT & Bcrypt</span>
+          </div>
+          <div class="glass-card skill-card" data-category="tools">
+            <div class="skill-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+            </div>
+            <span class="skill-name">Twilio & Cloudinary</span>
+          </div>
+          <div class="glass-card skill-card" data-category="tools">
+            <div class="skill-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <span class="skill-name">Prompt Engineering</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="section-padding" id="projects">
+    <div class="container">
+      <div class="section-header scroll-reveal">
+        <span class="badge">My Showcase</span>
+        <h2 class="section-title">Featured Projects</h2>
+        <p class="section-desc">Explore live applications, detailed architectural solutions, and independent design systems.</p>
+      </div>
+
+      <div class="projects-grid">
+        <!-- Project 1: Aisira -->
+        <div class="glass-card project-card scroll-reveal">
+          <div class="project-img-wrapper">
+            <img src="assets/project_aisira.png" alt="Aisira Platform Screenshot" id="project-img-aisira" class="project-img">
+            <div class="project-overlay">
+              <a href="#" class="project-link-btn cursor-hover-target" data-modal="modal-aisira" aria-label="View Project Details">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+              </a>
+            </div>
+          </div>
+          <div class="project-content">
+            <div class="project-tags">
+              <span class="project-tag">MERN PWA</span>
+              <span class="project-tag">Leaflet.js</span>
+              <span class="project-tag">Offline Caching</span>
+            </div>
+            <h3 class="project-title">Aisira</h3>
+            <p class="project-desc">
+              An enterprise Progressive Web App (PWA) facilitating cultural event discovery (Yakshagana, Kambala, Nema/Kola) across Coastal Karnataka. Integrated offline service workers, Twilio automated alerts, and custom map layers.
+            </p>
+            <a href="#" class="project-more-link cursor-hover-target" data-modal="modal-aisira">
+              View Architecture Detail
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 2: The Courtyard -->
+        <div class="glass-card project-card scroll-reveal">
+          <div class="project-img-wrapper">
+            <img src="assets/project_courtyard.png" alt="The Courtyard Venue POS Platform" id="project-img-courtyard" class="project-img">
+            <div class="project-overlay">
+              <a href="#" class="project-link-btn cursor-hover-target" data-modal="modal-courtyard" aria-label="View Project Details">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+              </a>
+            </div>
+          </div>
+          <div class="project-content">
+            <div class="project-tags">
+              <span class="project-tag">Next.js</span>
+              <span class="project-tag">MongoDB Atlas</span>
+              <span class="project-tag">POS & OAuth</span>
+            </div>
+            <h3 class="project-title">The Courtyard</h3>
+            <p class="project-desc">
+              A comprehensive Venue Management & POS platform equipped with real-time court bookings, membership tiers, dynamic peak-pricing engines, QR check-ins, and secure administrative accounting analysis.
+            </p>
+            <a href="#" class="project-more-link cursor-hover-target" data-modal="modal-courtyard">
+              View Architecture Detail
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 3: Production Quiz App -->
+        <div class="glass-card project-card scroll-reveal">
+          <div class="project-img-wrapper">
+            <img src="assets/project_quiz.png" alt="Quiz Application Platform" id="project-img-quiz" class="project-img">
+            <div class="project-overlay">
+              <a href="#" class="project-link-btn cursor-hover-target" data-modal="modal-quiz" aria-label="View Project Details">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+              </a>
+            </div>
+          </div>
+          <div class="project-content">
+            <div class="project-tags">
+              <span class="project-tag">MERN Capstone</span>
+              <span class="project-tag">Role Auth (RBAC)</span>
+              <span class="project-tag">Anti-Cheat System</span>
+            </div>
+            <h3 class="project-title">Secure Quizmaster PWA</h3>
+            <p class="project-desc">
+              Industry-grade multi-role testing software built during the internship. Features anti-cheat browser tab-switching indicators, timed test sequences, automated scoring, real-time user leaderboards, and Vercel/Render hosting.
+            </p>
+            <a href="#" class="project-more-link cursor-hover-target" data-modal="modal-quiz">
+              View Architecture Detail
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience & History Section -->
+  <section class="section-padding" id="experience" style="background: var(--bg-secondary);">
+    <div class="container">
+      <div class="section-header scroll-reveal">
+        <span class="badge">My Career & Education</span>
+        <h2 class="section-title">Timeline Milestones</h2>
+        <p class="section-desc">A progressive chronology of my academic education and industrial internship milestones.</p>
+      </div>
+
+      <div class="timeline-container scroll-reveal">
+        <div class="timeline-line"></div>
+        <div class="timeline-progress" id="timeline-progress-bar"></div>
+
+        <!-- Milestone 1: Internship -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="glass-card timeline-content">
+            <div class="timeline-header-flex">
+              <div>
+                <h3 class="timeline-role">Full Stack Web Development Intern</h3>
+                <span class="timeline-company">SuprMentr Technologies Pvt Ltd, Bengaluru</span>
+              </div>
+              <span class="timeline-date">2025 - 2026 (16 Weeks)</span>
+            </div>
+            <div class="timeline-desc">
+              Joined the intensive MERN Stack development track. Engaged in both strict core training and independent application design.
+              <ul class="timeline-list">
+                <li>Acquired deep competencies in modern ES6+, React.js frameworks, Node/Express, and MongoDB storage systems (10 weeks).</li>
+                <li>Constructed the <strong>Secure Quizmaster App</strong> capstone utilizing JWT, Bcrypt authentication protocols, and strict Role-Based Access Controls (6 weeks).</li>
+                <li>Implemented anti-cheat blur/tab detection mechanisms, timed UI responses, live leaderboards, and answer analytic matrices. Deployed services to Render and Vercel.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Milestone 2: B.E. Degree -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="glass-card timeline-content">
+            <div class="timeline-header-flex">
+              <div>
+                <h3 class="timeline-role">B.E. – Information Science & Engineering</h3>
+                <span class="timeline-company">AJ Institute of Engineering & Technology, Mangalore</span>
+              </div>
+              <span class="timeline-date">2022 - 2026</span>
+            </div>
+            <div class="timeline-desc">
+              Rigorous undergraduate training centering around advanced systems engineering, database paradigms, data structures, algorithms, and web networks.
+              <ul class="timeline-list">
+                <li>Graduated with a cumulative GPA of <strong>6.5</strong>.</li>
+                <li>Acted as a student lead on multiple web system development tracks.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Milestone 3: PUC -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="glass-card timeline-content">
+            <div class="timeline-header-flex">
+              <div>
+                <h3 class="timeline-role">Pre-University College (PUC)</h3>
+                <span class="timeline-company">Sharada PU College, Kodialbail, Mangalore</span>
+              </div>
+              <span class="timeline-date">2021</span>
+            </div>
+            <div class="timeline-desc">
+              Completed Karnataka State Board program specializing in Science and Mathematics, graduating with an aggregate score of <strong>75.17%</strong>.
+            </div>
+          </div>
+        </div>
+
+        <!-- Milestone 4: SSLC -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="glass-card timeline-content">
+            <div class="timeline-header-flex">
+              <div>
+                <h3 class="timeline-role">SSLC (10th Standard)</h3>
+                <span class="timeline-company">Canara High School, Urwa, Mangalore</span>
+              </div>
+              <span class="timeline-date">2019</span>
+            </div>
+            <div class="timeline-desc">
+              Graduated Karnataka State Board school curriculum with a high aggregate score of <strong>85.44%</strong>.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Honors & Activities Section (The custom premium cards) -->
+  <section class="section-padding" id="honors">
+    <div class="container">
+      <div class="section-header scroll-reveal">
+        <span class="badge">Beyond Code</span>
+        <h2 class="section-title">Honors & Activities</h2>
+        <p class="section-desc">My creative endeavors and awards representing the duality of systems engineering and cultural art.</p>
+      </div>
+
+      <div class="honors-grid">
+        <!-- Card 1: Yakshagana -->
+        <div class="glass-card honor-card scroll-reveal">
+          <div class="honor-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          </div>
+          <div>
+            <span class="honor-subtitle">STATE HONOUR RECIPIENT</span>
+            <h3 class="honor-title">"Aralu Mallige" State Award</h3>
+          </div>
+          <p class="honor-desc">
+            Awarded by the prestigious <strong>Jnana Mandara Academy, Bangalore</strong>, for my exceptional professional contribution as a traditional <strong>Yakshagana Artist</strong> (coastal Karnataka's classic mythological dance-drama format).
+          </p>
+        </div>
+
+        <!-- Card 2: Leo's Club -->
+        <div class="glass-card honor-card scroll-reveal">
+          <div class="honor-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          </div>
+          <div>
+            <span class="honor-subtitle">LEADERSHIP ROLE</span>
+            <h3 class="honor-title">Leo's Club Officer</h3>
+          </div>
+          <p class="honor-desc">
+            Served as both <strong>Vice President</strong> and <strong>Joint Secretary</strong>, leading impactful community service drives, orchestrating local outreach programs, and running multi-stakeholder charity campaigns.
+          </p>
+        </div>
+
+        <!-- Card 3: YouTube -->
+        <div class="glass-card honor-card scroll-reveal">
+          <div class="honor-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+          </div>
+          <div>
+            <span class="honor-subtitle">CREATIVE & TRAVEL NICHE</span>
+            <h3 class="honor-title">YouTube Video Creator</h3>
+          </div>
+          <p class="honor-desc">
+            Founder and creator of <strong>"Lost and Found by Pratham"</strong>, a travel-vlogging channel. Manage planning, filming, digital editing, and script mapping.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section-padding" id="contact" style="background: var(--bg-secondary);">
+    <div class="container">
+      <div class="section-header scroll-reveal">
+        <span class="badge">Get in Touch</span>
+        <h2 class="section-title">Let's Collaborate</h2>
+        <p class="section-desc">Open for <strong>full-time roles</strong> and <strong>freelance projects</strong> — personalized websites, full-stack web apps, PWAs, dashboards, and more. Let's turn your idea into a polished digital product.</p>
+      </div>
+
+      <div class="contact-grid">
+        <!-- Contact Cards -->
+        <div class="contact-info scroll-reveal">
+          <div class="glass-card contact-card">
+            <div class="contact-card-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            </div>
+            <div>
+              <div class="contact-card-title">EMAIL ME</div>
+              <a href="mailto:raipratham12@gmail.com" class="contact-card-value cursor-hover-target">raipratham12@gmail.com</a>
+            </div>
+          </div>
+
+          <div class="glass-card contact-card">
+            <div class="contact-card-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            </div>
+            <div>
+              <div class="contact-card-title">CALL ME</div>
+              <a href="tel:+919972112954" class="contact-card-value cursor-hover-target">+91 9972112954</a>
+            </div>
+          </div>
+
+          <div class="glass-card contact-card">
+            <div class="contact-card-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            </div>
+            <div>
+              <div class="contact-card-title">LOCATION</div>
+              <span class="contact-card-value">Mangalore, Karnataka, India</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <form class="glass-card contact-form scroll-reveal" id="contact-form-handler">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="form-name" class="form-label">Your Name</label>
+              <input type="text" id="form-name" class="form-input" placeholder="John Doe" required>
+            </div>
+            <div class="form-group">
+              <label for="form-email" class="form-label">Email Address</label>
+              <input type="email" id="form-email" class="form-input" placeholder="john@example.com" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="form-subject" class="form-label">Subject</label>
+            <input type="text" id="form-subject" class="form-input" placeholder="Collaboration Opportunity" required>
+          </div>
+          <div class="form-group">
+            <label for="form-message" class="form-label">Your Message</label>
+            <textarea id="form-message" class="form-input" placeholder="Hi Pratham, I would like to discuss..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary cursor-hover-target" style="width: 100%;">
+            Send Digital Message
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Project Detail Modals -->
+
+  <!-- Modal 1: Aisira -->
+  <div class="modal-overlay" id="modal-aisira">
+    <div class="glass-card modal-card">
+      <button class="modal-close-btn cursor-hover-target" aria-label="Close Modal">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+      <div class="modal-image-wrapper">
+        <img src="assets/project_aisira.png" alt="Aisira Cover Detail" id="modal-img-aisira-detail" class="modal-image">
+      </div>
+      <div class="modal-body">
+        <div class="modal-header-flex">
+          <div class="modal-meta">
+            <span class="badge" style="margin-bottom:0;">Culture discovery Platform</span>
+            <h2 class="modal-title">Aisira</h2>
+          </div>
+          <div class="modal-links">
+            <a href="https://github.com/pratham-rai/aisira.git" target="_blank" class="btn btn-secondary cursor-hover-target" style="padding: 10px 16px; font-size: 0.85rem;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+              View GitHub
+            </a>
+          </div>
+        </div>
+
+        <div class="modal-content-grid">
+          <div>
+            <h3 class="modal-section-title">The Challenge & Vision</h3>
+            <p class="modal-text">
+              Coastal Karnataka possesses highly rich traditional art and sports formats (like Yakshagana, Kambala, Nema/Kola). However, finding their locations, times, and dates historically depended on word-of-mouth or localized posters. <strong>Aisira</strong> acts as an enterprise-grade Progressive Web App that aggregates, maps, and broadcasts event details in real-time.
+            </p>
+            <h3 class="modal-section-title">Architecture Highlights</h3>
+            <p class="modal-text">
+              - <strong>Offline Access</strong>: Developed a custom Service Worker utilizing cache-first strategical models to ensure maps and lists remain available even in regions with spotty cellular network coverage.<br>
+              - <strong>Twilio Automation</strong>: Integrated Twilio's WhatsApp Business API, setting up automated messaging channels that dispatch schedules, route updates, and location updates.<br>
+              - <strong>Interactive Maps</strong>: Engineered dynamic coordinate-placements via Leaflet.js with an automated administrative coordinate-extraction dashboard.<br>
+              - <strong>Assets</strong>: Utilized Cloudinary for fast media manipulation and high-speed multi-poster gallery displays.
+            </p>
+          </div>
+          <div class="modal-meta-box">
+            <div class="modal-meta-item">
+              <div class="modal-meta-label">TECH STACK</div>
+              <div class="modal-meta-value">Vite, Node.js, Express, MongoDB Atlas, Leaflet.js, Twilio, Cloudinary</div>
+            </div>
+            <div class="modal-meta-item">
+              <div class="modal-meta-label">ROLE</div>
+              <div class="modal-meta-value">Lead Creator / Full-Stack Engineer</div>
+            </div>
+            <div class="modal-meta-item">
+              <div class="modal-meta-label">YEAR</div>
+              <div class="modal-meta-value">2026</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 2: The Courtyard -->
+  <div class="modal-overlay" id="modal-courtyard">
+    <div class="glass-card modal-card">
+      <button class="modal-close-btn cursor-hover-target" aria-label="Close Modal">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+      <div class="modal-image-wrapper">
+        <img src="assets/project_courtyard.png" alt="The Courtyard Cover Detail" id="modal-img-courtyard-detail" class="modal-image">
+      </div>
+      <div class="modal-body">
+        <div class="modal-header-flex">
+          <div class="modal-meta">
+            <span class="badge" style="margin-bottom:0;">Venue Management & POS</span>
+            <h2 class="modal-title">The Courtyard</h2>
+          </div>
+          <div class="modal-links">
+            <a href="https://github.com/pratham-rai" target="_blank" class="btn btn-secondary cursor-hover-target" style="padding: 10px 16px; font-size: 0.85rem;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+              View GitHub
+            </a>
+          </div>
+        </div>
+
+        <div class="modal-content-grid">
+          <div>
+            <h3 class="modal-section-title">The Scope</h3>
+            <p class="modal-text">
+              <strong>The Courtyard</strong> is an integrated club booking and commercial management platform designed to automate operations. It handles membership billing, real-time sports court slot bookings, split bills at physical point-of-sale systems, and tracks operational inventory in real-time.
+            </p>
+            <h3 class="modal-section-title">Technical Implementation</h3>
+            <p class="modal-text">
+              - <strong>Concurrency Protection</strong>: Structured slot reservations with robust transaction locking in MongoDB to prevent double-bookings of sports facilities.<br>
+              - <strong>Peak Pricing Algorithms</strong>: Built a dynamic pricing module adjusting bookings costs based on hour categories and weekend demand models.<br>
+              - <strong>Secured Admin Workspace</strong>: Formed charts and master ledger accounting systems using Chart.js, providing managers precise visual analytics over cash flows, booking densities, and high-frequency time brackets.
+            </p>
+          </div>
+          <div class="modal-meta-box">
+            <div class="modal-meta-item">
+              <div class="modal-meta-label">TECH STACK</div>
+              <div class="modal-meta-value">Next.js, Express.js, MongoDB Atlas, Chart.js, JWT, Google OAuth</div>
+            </div>
+            <div class="modal-meta-item">
+              <div class="modal-meta-label">ROLE</div>
+              <div class="modal-meta-value">Full-Stack Architect & developer</div>
+            </div>
+            <div class="modal-meta-item">
+              <div class="modal-meta-label">YEAR</div>
+              <div class="modal-meta-value">2026</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 3: Quiz App -->
+  <div class="modal-overlay" id="modal-quiz">
+    <div class="glass-card modal-card">
+      <button class="modal-close-btn cursor-hover-target" aria-label="Close Modal">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+      <div class="modal-image-wrapper">
+        <img src="assets/project_quiz.png" alt="Quiz Platform Detail" id="modal-img-quiz-detail" class="modal-image">
+      </div>
+      <div class="modal-body">
+        <div class="modal-header-flex">
+          <div class="modal-meta">
+            <span class="badge" style="margin-bottom:0;">Production-grade Testing PWA</span>
+            <h2 class="modal-title">Secure Quizmaster</h2>
+          </div>
+          <div class="modal-links">
+
+            <a href="https://github.com/pratham-rai/QuizApp" target="_blank" class="btn btn-secondary cursor-hover-target" style="padding: 10px 16px; font-size: 0.85rem;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+              </svg>
+              View GitHub
+            </a>
+          </div>
+        </div>
+
+        <div class="modal-content-grid">
+          <div>
+            <h3 class="modal-section-title">Capstone Vision</h3>
+            <p class="modal-text">
+              Built as the final capstone project during the 16-week industrial internship at SuprMentr Technologies. The program demanded the creation of a high-concurrency, secure multi-role exam administration site.
+            </p>
+            <h3 class="modal-section-title">Key Security Integrations</h3>
+            <p class="modal-text">
+              - <strong>Anti-Cheat Monitoring</strong>: Developed a strict tab-activity observer system. If a student leaves the testing browser tab, the application records a tab-blur infraction, flashing alert logs to administrators and locked accounts if threshold limits are exceeded.<br>
+              - <strong>Role-Based Security (RBAC)</strong>: Formulated clean database routing filters categorizing accounts into: Student (test taking), Quizmaster (test creation, validation), and Administrator (global monitoring, analytical graphs).<br>
+              - <strong>Bcrypt &amp; JWT Encryption</strong>: Structured high-security sign-ins with salted token exchanges and encrypted local user configurations.
+            </p>
+          </div>
+          <div class="modal-meta-box">
+            <div class="modal-meta-item">
+              <div class="modal-meta-label">TECH STACK</div>
+              <div class="modal-meta-value">MERN Stack, JWT, Bcrypt, React, Node.js, Express, MongoDB Atlas</div>
+            </div>
+            <div class="modal-meta-item">
+              <div class="modal-meta-label">ROLE</div>
+              <div class="modal-meta-value">MERN Development Intern</div>
+            </div>
+            <div class="modal-meta-item">
+              <div class="modal-meta-label">YEAR</div>
+              <div class="modal-meta-value">2025</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast/Alert Success Container -->
+  <div class="alert-container">
+    <div class="custom-alert shadow" id="success-alert">
+      <div class="alert-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+      </div>
+      <div>
+        <h4 style="font-weight:700; margin-bottom: 2px;">Message Broadcasted!</h4>
+        <p style="font-size:0.8rem; color: var(--text-secondary);">Your transmission was successfully saved. Thank you!</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Section -->
+  <footer>
+    <div class="container">
+      <div class="footer-socials">
+        <a href="https://github.com/pratham-rai" target="_blank" class="social-link cursor-hover-target" aria-label="GitHub">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        </a>
+        <a href="mailto:raipratham12@gmail.com" class="social-link cursor-hover-target" aria-label="Email">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+        </a>
+        <a href="tel:+919972112954" class="social-link cursor-hover-target" aria-label="Phone Call">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+        </a>
+      </div>
+      <p class="footer-text">&copy; 2026 Pratham Rai. Deployed via custom vanilla architecture. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Application Script -->
+  <script src="app.js"></script>
+</body>
+</html>
