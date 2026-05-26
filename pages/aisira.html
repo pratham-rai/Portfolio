@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Primary Meta Tags -->
+  <title>Aisira — Cultural Event Discovery PWA | Pratham Rai</title>
+  <meta name="title" content="Aisira — Cultural Event Discovery PWA | Pratham Rai">
+  <meta name="description" content="Enterprise Progressive Web App facilitating cultural event discovery (Yakshagana, Kambala, Nema/Kola) across Coastal Karnataka. Built with Vite, Node.js, Express, MongoDB Atlas, Leaflet.js, Twilio, and Cloudinary.">
+  <meta name="keywords" content="Aisira, PWA, Cultural Events, Yakshagana, Kambala, Leaflet.js, Twilio, Cloudinary, Pratham Rai, Full-Stack Developer">
+  <meta name="author" content="Pratham Rai">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Aisira — Cultural Event Discovery PWA | Pratham Rai">
+  <meta property="og:description" content="Enterprise PWA for discovering cultural events across Coastal Karnataka with offline support, interactive maps, and automated Twilio alerts.">
+  <meta property="og:image" content="https://pratham-rai.github.io/Portfolio/assets/project_aisira.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:title" content="Aisira — Cultural Event Discovery PWA | Pratham Rai">
+  <meta property="twitter:description" content="Enterprise PWA for discovering cultural events across Coastal Karnataka with offline support, interactive maps, and automated Twilio alerts.">
+  <meta property="twitter:image" content="https://pratham-rai.github.io/Portfolio/assets/project_aisira.png">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨‍💻</text></svg>">
+
+  <!-- Shared Stylesheet -->
+  <link rel="stylesheet" href="../style.css">
+
+  <!-- Detail Page Styles -->
+  <style>
+    /* ===== TOP BAR ===== */
+    .detail-topbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 16px 0;
+      background: rgba(6, 9, 19, 0.72);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid var(--border-color);
+      transition: background-color var(--transition-normal);
+    }
+    [data-theme="light"] .detail-topbar {
+      background: rgba(248, 250, 252, 0.82);
+    }
+    .topbar-inner {
+      max-width: var(--container-width);
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .detail-back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      transition: color var(--transition-fast), transform var(--transition-fast);
+    }
+    .detail-back-btn:hover {
+      color: var(--accent-color);
+      transform: translateX(-4px);
+    }
+    .detail-back-btn svg {
+      transition: transform var(--transition-fast);
+    }
+    .detail-back-btn:hover svg {
+      transform: translateX(-3px);
+    }
+
+    /* ===== HERO ===== */
+    .detail-hero {
+      position: relative;
+      width: 100%;
+      height: 480px;
+      margin-top: 73px;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+    }
+    .detail-hero-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      filter: blur(1px);
+      transform: scale(1.04);
+      transition: transform 8s ease;
+    }
+    .detail-hero:hover .detail-hero-bg {
+      transform: scale(1.08);
+    }
+    .detail-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(6,9,19,0.45) 0%, rgba(6,9,19,0.92) 100%);
+      z-index: 1;
+    }
+    [data-theme="light"] .detail-hero-overlay {
+      background: linear-gradient(180deg, rgba(248,250,252,0.35) 0%, rgba(248,250,252,0.95) 100%);
+    }
+    .detail-hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: var(--container-width);
+      margin: 0 auto;
+      padding: 0 24px 48px;
+      width: 100%;
+    }
+    .detail-hero-content .badge {
+      margin-bottom: 16px;
+    }
+    .detail-hero-title {
+      font-size: 3.2rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 12px;
+      line-height: 1.1;
+    }
+    .detail-hero-subtitle {
+      font-size: 1.15rem;
+      color: var(--text-secondary);
+      max-width: 640px;
+    }
+    .hero-badges {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    .hero-tech-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #e2e8f0;
+      padding: 6px 14px;
+      border-radius: 50px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      backdrop-filter: blur(8px);
+    }
+    [data-theme="light"] .hero-tech-badge {
+      background: rgba(0, 0, 0, 0.05);
+      border-color: rgba(0, 0, 0, 0.1);
+      color: var(--text-secondary);
+    }
+
+    /* ===== CONTENT LAYOUT ===== */
+    .detail-content {
+      max-width: var(--container-width);
+      margin: 0 auto;
+      padding: 60px 24px 80px;
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      gap: 48px;
+      align-items: start;
+    }
+    .detail-main {
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+    }
+
+    /* Section blocks */
+    .content-section h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      position: relative;
+      padding-bottom: 12px;
+    }
+    .content-section h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 48px;
+      height: 3px;
+      background: var(--accent-gradient);
+      border-radius: 3px;
+    }
+    .content-section p {
+      color: var(--text-secondary);
+      font-size: 1rem;
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+    .feature-list {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .feature-list li {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      color: var(--text-secondary);
+      font-size: 0.98rem;
+      line-height: 1.7;
+    }
+    .feature-icon {
+      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: rgba(99, 102, 241, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-color);
+      margin-top: 2px;
+    }
+
+    /* ===== GALLERY ===== */
+    .detail-gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .gallery-item {
+      position: relative;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      aspect-ratio: 16 / 10;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform var(--transition-slow);
+    }
+    .gallery-item:hover img {
+      transform: scale(1.06);
+    }
+    .gallery-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 10px 14px;
+      background: linear-gradient(transparent, rgba(6,9,19,0.85));
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #e2e8f0;
+    }
+    [data-theme="light"] .gallery-caption {
+      background: linear-gradient(transparent, rgba(0,0,0,0.6));
+      color: #fff;
+    }
+
+    /* ===== SIDEBAR ===== */
+    .detail-sidebar {
+      position: sticky;
+      top: 100px;
+    }
+    .sidebar-card {
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+    .sidebar-section-title {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .sidebar-value {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      line-height: 1.6;
+    }
+    .sidebar-tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .sidebar-tech-tag {
+      font-size: 0.78rem;
+      font-weight: 600;
+      background: rgba(99, 102, 241, 0.08);
+      border: 1px solid rgba(99, 102, 241, 0.18);
+      color: var(--accent-color);
+      padding: 5px 12px;
+      border-radius: 50px;
+    }
+    .sidebar-github-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      padding: 14px 24px;
+      background: var(--accent-gradient);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius-sm);
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(99, 102, 241, 0.35);
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+    }
+    .sidebar-github-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(99, 102, 241, 0.55);
+    }
+
+    /* ===== FOOTER ===== */
+    .detail-footer {
+      padding: 48px 0;
+      border-top: 1px solid var(--border-color);
+      text-align: center;
+      background: var(--bg-secondary);
+    }
+    .detail-footer a {
+      color: var(--accent-color);
+      font-weight: 600;
+      transition: color var(--transition-fast);
+    }
+    .detail-footer a:hover {
+      color: var(--accent-secondary);
+    }
+    .detail-footer .footer-copy {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-top: 12px;
+    }
+
+    /* ===== DECORATIVE GLOW ===== */
+    .page-glow {
+      position: fixed;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      filter: blur(140px);
+      z-index: -1;
+      opacity: 0.12;
+      pointer-events: none;
+    }
+    .page-glow-1 { top: -8%; left: -8%; background: var(--accent-color); }
+    .page-glow-2 { bottom: 5%; right: -8%; background: var(--accent-secondary); }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .detail-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .detail-sidebar {
+        position: static;
+      }
+      .detail-hero-title {
+        font-size: 2.6rem;
+      }
+    }
+    @media (max-width: 768px) {
+      .detail-hero {
+        height: 380px;
+      }
+      .detail-hero-title {
+        font-size: 2rem;
+      }
+      .detail-gallery {
+        grid-template-columns: 1fr;
+      }
+      .detail-content {
+        padding: 40px 20px 60px;
+      }
+    }
+  </style>
+</head>
+<body data-theme="dark">
+
+  <!-- Decorative Glows -->
+  <div class="page-glow page-glow-1"></div>
+  <div class="page-glow page-glow-2"></div>
+
+  <!-- Top Bar -->
+  <div class="detail-topbar">
+    <div class="topbar-inner">
+      <a href="../index.html" class="detail-back-btn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+        Back to Portfolio
+      </a>
+      <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle Theme">
+        <svg class="sun" viewBox="0 0 24 24"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.36c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z"/></svg>
+        <svg class="moon" viewBox="0 0 24 24"><path d="M12.3 22c5.3 0 9.7-4.4 9.7-9.7 0-1.7-.5-3.4-1.3-4.8-.4-.7-1.3-.8-1.8-.2-.3.3-.4.7-.4 1.1.2 2.2-.4 4.4-1.9 6-1.5 1.6-3.7 2.4-6 2.2-1.7-.2-3.3-1-4.4-2.3-.4-.5-1.2-.4-1.6.2-.8 1.4-1.3 3.1-1.3 4.8 0 5.3 4.4 9.7 9.7 9.7z"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="detail-hero">
+    <div class="detail-hero-bg" style="background-image: url('../assets/project_aisira.png');"></div>
+    <div class="detail-hero-overlay"></div>
+    <div class="detail-hero-content">
+      <span class="badge">Cultural Event Discovery Platform</span>
+      <h1 class="detail-hero-title">Aisira</h1>
+      <p class="detail-hero-subtitle">Enterprise Progressive Web App facilitating cultural event discovery (Yakshagana, Kambala, Nema/Kola) across Coastal Karnataka.</p>
+      <div class="hero-badges">
+        <span class="hero-tech-badge">Vite</span>
+        <span class="hero-tech-badge">Node.js</span>
+        <span class="hero-tech-badge">Express</span>
+        <span class="hero-tech-badge">MongoDB Atlas</span>
+        <span class="hero-tech-badge">Leaflet.js</span>
+        <span class="hero-tech-badge">Twilio</span>
+        <span class="hero-tech-badge">Cloudinary</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <div class="detail-content">
+    <!-- Main Column -->
+    <div class="detail-main">
+
+      <!-- Challenge / Vision -->
+      <div class="content-section">
+        <h2>The Challenge &amp; Vision</h2>
+        <p>
+          Coastal Karnataka is home to extraordinarily rich traditional art forms and sporting events — <strong>Yakshagana</strong> (ancient mythological dance-drama), <strong>Kambala</strong> (buffalo racing), and <strong>Nema/Kola</strong> (spirit worship rituals). Yet for decades, discovering when and where these events take place relied entirely on word-of-mouth, hand-pasted posters, and local networks.
+        </p>
+        <p>
+          <strong>Aisira</strong> was envisioned as an enterprise-grade Progressive Web App that aggregates, geo-maps, and broadcasts cultural event details in real-time — democratizing access for locals and tourists alike, while empowering event organizers with a self-service admin dashboard.
+        </p>
+      </div>
+
+      <!-- Architecture / Features -->
+      <div class="content-section">
+        <h2>Architecture &amp; Key Features</h2>
+        <ul class="feature-list">
+          <li>
+            <div class="feature-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+            </div>
+            <div>
+              <strong>Offline Service Worker (Cache-First Strategy)</strong><br>
+              Custom Service Worker ensures maps, event lists, and core UI remain fully available in areas with spotty or non-existent cellular coverage — critical for rural Coastal Karnataka.
+            </div>
+          </li>
+          <li>
+            <div class="feature-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <div>
+              <strong>Twilio WhatsApp Business API Integration</strong><br>
+              Automated messaging pipelines dispatch event schedules, location pin updates, and route directions directly to subscribed users via WhatsApp — zero app-install friction.
+            </div>
+          </li>
+          <li>
+            <div class="feature-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="3"/><path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 0 0-16 0c0 3 2.7 7 8 11.7z"/></svg>
+            </div>
+            <div>
+              <strong>Interactive Leaflet.js Maps</strong><br>
+              Dynamic coordinate placement with custom event-category markers and an admin dashboard featuring click-to-extract coordinate tooling for rapid event geo-tagging.
+            </div>
+          </li>
+          <li>
+            <div class="feature-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            </div>
+            <div>
+              <strong>Cloudinary Media Management</strong><br>
+              Optimized asset delivery with on-the-fly image transformations, ensuring fast multi-poster gallery loading and responsive image sizing across all devices.
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Gallery -->
+      <div class="content-section">
+        <h2>Project Gallery</h2>
+        <div class="detail-gallery">
+          <div class="gallery-item">
+            <img src="../assets/project_aisira.png" alt="Aisira Screenshot 1" loading="lazy">
+            <div class="gallery-caption">Event Discovery Map View</div>
+          </div>
+          <div class="gallery-item">
+            <img src="../assets/project_aisira.png" alt="Aisira Screenshot 2" loading="lazy">
+            <div class="gallery-caption">Admin Dashboard</div>
+          </div>
+          <div class="gallery-item">
+            <img src="../assets/project_aisira.png" alt="Aisira Screenshot 3" loading="lazy">
+            <div class="gallery-caption">Mobile PWA Interface</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="detail-sidebar">
+      <div class="glass-card sidebar-card">
+        <div>
+          <div class="sidebar-section-title">Tech Stack</div>
+          <div class="sidebar-tech-tags">
+            <span class="sidebar-tech-tag">Vite</span>
+            <span class="sidebar-tech-tag">Node.js</span>
+            <span class="sidebar-tech-tag">Express</span>
+            <span class="sidebar-tech-tag">MongoDB Atlas</span>
+            <span class="sidebar-tech-tag">Leaflet.js</span>
+            <span class="sidebar-tech-tag">Twilio</span>
+            <span class="sidebar-tech-tag">Cloudinary</span>
+          </div>
+        </div>
+        <div>
+          <div class="sidebar-section-title">Role</div>
+          <div class="sidebar-value">Lead Creator / Full-Stack Engineer</div>
+        </div>
+        <div>
+          <div class="sidebar-section-title">Year</div>
+          <div class="sidebar-value">2026</div>
+        </div>
+        <div>
+          <div class="sidebar-section-title">Type</div>
+          <div class="sidebar-value">Progressive Web App (PWA)</div>
+        </div>
+        <a href="https://github.com/pratham-rai/aisira.git" target="_blank" class="sidebar-github-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          View on GitHub
+        </a>
+      </div>
+    </aside>
+  </div>
+
+  <!-- Footer -->
+  <footer class="detail-footer">
+    <a href="../index.html" class="detail-back-btn" style="justify-content: center;">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+      Back to Portfolio
+    </a>
+    <p class="footer-copy">© 2026 Pratham Rai. All rights reserved.</p>
+  </footer>
+
+  <!-- Theme Toggle Script -->
+  <script>
+    (function() {
+      const toggle = document.getElementById('theme-toggle') || document.getElementById('themeToggle');
+      const setTheme = (theme) => {
+        document.documentElement.setAttribute('data-theme', theme);
+        document.body.setAttribute('data-theme', theme);
+        localStorage.setItem('pratham-theme', theme);
+      };
+      
+      const saved = localStorage.getItem('pratham-theme') || 'dark';
+      setTheme(saved);
+
+      if (toggle) {
+        toggle.addEventListener('click', () => {
+          const current = document.documentElement.getAttribute('data-theme') || 'dark';
+          const next = current === 'dark' ? 'light' : 'dark';
+          setTheme(next);
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

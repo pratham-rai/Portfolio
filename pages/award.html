@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Pratham Rai — 'Aralu Mallige' State Award recipient from Jnana Mandara Academy, Bangalore, for outstanding contribution in classical performing arts.">
+  <meta name="keywords" content="Pratham Rai, Aralu Mallige, State Award, Jnana Mandara Academy, Classical Arts, Karnataka">
+  <meta name="author" content="Pratham Rai">
+  <meta property="og:title" content="Aralu Mallige State Award — Pratham Rai">
+  <meta property="og:description" content="Awarded by the prestigious Jnana Mandara Academy, Bangalore, for outstanding professional and cultural contribution in classical performing arts.">
+  <meta property="og:type" content="website">
+  <title>Aralu Mallige State Award — Pratham Rai</title>
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    /* ===== Detail Page Styles ===== */
+
+    /* Ambient Background Glows */
+    .detail-glow-1,
+    .detail-glow-2 {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(140px);
+      z-index: -1;
+      opacity: 0.12;
+      pointer-events: none;
+    }
+    .detail-glow-1 {
+      width: 500px; height: 500px;
+      top: -15%; left: -10%;
+      background: var(--accent-color);
+    }
+    .detail-glow-2 {
+      width: 400px; height: 400px;
+      bottom: 5%; right: -8%;
+      background: var(--accent-secondary);
+    }
+
+    /* Top Bar */
+    .detail-topbar {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 16px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(6, 9, 19, 0.6);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid var(--border-color);
+      transition: background-color var(--transition-normal);
+    }
+    [data-theme="light"] .detail-topbar {
+      background: rgba(248, 250, 252, 0.7);
+    }
+    .detail-back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      transition: color var(--transition-fast), transform var(--transition-fast);
+    }
+    .detail-back-btn:hover {
+      color: var(--accent-color);
+      transform: translateX(-4px);
+    }
+    .detail-back-btn svg {
+      width: 18px; height: 18px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* Hero Section */
+    .detail-hero {
+      position: relative;
+      width: 100%;
+      min-height: 480px;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      margin-top: 0;
+    }
+    .detail-hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('../assets/hero_portrait.png');
+      background-size: cover;
+      background-position: center 20%;
+      filter: blur(2px) brightness(0.55);
+      transform: scale(1.05);
+      transition: filter var(--transition-normal);
+    }
+    [data-theme="light"] .detail-hero-bg {
+      filter: blur(2px) brightness(0.65);
+    }
+    .detail-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(6, 9, 19, 0.3) 0%,
+        rgba(6, 9, 19, 0.85) 80%,
+        var(--bg-primary) 100%
+      );
+      transition: background var(--transition-normal);
+    }
+    [data-theme="light"] .detail-hero-overlay {
+      background: linear-gradient(
+        180deg,
+        rgba(248, 250, 252, 0.2) 0%,
+        rgba(248, 250, 252, 0.8) 80%,
+        var(--bg-primary) 100%
+      );
+    }
+    .detail-hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 120px 24px 60px;
+      width: 100%;
+    }
+    .detail-hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(99, 102, 241, 0.12);
+      border: 1px solid rgba(99, 102, 241, 0.25);
+      color: var(--accent-color);
+      padding: 8px 18px;
+      border-radius: 50px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 20px;
+      backdrop-filter: blur(8px);
+    }
+    .detail-hero-badge svg {
+      width: 14px; height: 14px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2.5;
+    }
+    .detail-hero-title {
+      font-size: 3.5rem;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 16px;
+      letter-spacing: -0.03em;
+    }
+    .detail-hero-subtitle {
+      font-size: 1.15rem;
+      color: var(--text-secondary);
+      max-width: 700px;
+      line-height: 1.7;
+    }
+
+    /* Content Area */
+    .detail-content {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 60px 24px 80px;
+    }
+    .detail-section {
+      margin-bottom: 56px;
+    }
+    .detail-section-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      position: relative;
+      padding-left: 20px;
+    }
+    .detail-section-title::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 4px;
+      width: 4px;
+      height: 28px;
+      background: var(--accent-gradient);
+      border-radius: 4px;
+    }
+    .detail-text {
+      color: var(--text-secondary);
+      font-size: 1.05rem;
+      line-height: 1.85;
+      margin-bottom: 16px;
+    }
+
+    /* Gallery Grid */
+    .detail-gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 12px;
+    }
+    .detail-gallery-item {
+      position: relative;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      aspect-ratio: 4 / 3;
+      border: 1px solid var(--border-color);
+      background: var(--bg-card);
+    }
+    .detail-gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform var(--transition-slow);
+    }
+    .detail-gallery-item:hover img {
+      transform: scale(1.08);
+    }
+    .detail-gallery-caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 12px 16px;
+      background: linear-gradient(transparent, rgba(0,0,0,0.7));
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #fff;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity var(--transition-fast), transform var(--transition-fast);
+    }
+    .detail-gallery-item:hover .detail-gallery-caption {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Highlights Card */
+    .detail-highlights {
+      padding: 36px;
+    }
+    .detail-highlights-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .detail-highlights-title svg {
+      width: 22px; height: 22px;
+      stroke: var(--accent-secondary);
+      fill: none;
+      stroke-width: 2;
+    }
+    .detail-highlights ul {
+      list-style: none;
+      padding: 0;
+    }
+    .detail-highlights li {
+      position: relative;
+      padding: 12px 0 12px 28px;
+      color: var(--text-secondary);
+      font-size: 0.98rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .detail-highlights li:last-child {
+      border-bottom: none;
+    }
+    .detail-highlights li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 50%;
+      transform: translateY(-50%);
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--accent-gradient);
+    }
+
+    /* Footer */
+    .detail-footer {
+      padding: 48px 24px;
+      border-top: 1px solid var(--border-color);
+      text-align: center;
+      background: var(--bg-secondary);
+    }
+    .detail-footer-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--accent-color);
+      margin-bottom: 16px;
+      transition: transform var(--transition-fast);
+    }
+    .detail-footer-back:hover {
+      transform: translateX(-4px);
+    }
+    .detail-footer-back svg {
+      width: 16px; height: 16px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .detail-footer-copy {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .detail-hero-title { font-size: 2.4rem; }
+      .detail-hero { min-height: 380px; }
+      .detail-gallery { grid-template-columns: 1fr; }
+      .detail-topbar { padding: 14px 20px; }
+      .detail-highlights { padding: 24px; }
+    }
+    @media (max-width: 480px) {
+      .detail-hero-title { font-size: 2rem; }
+      .detail-hero-content { padding: 100px 16px 40px; }
+      .detail-content { padding: 40px 16px 60px; }
+    }
+
+    /* Page load animation */
+    .detail-hero-content > * {
+      opacity: 0;
+      transform: translateY(24px);
+      animation: fadeSlideUp 0.7s ease forwards;
+    }
+    .detail-hero-content > *:nth-child(1) { animation-delay: 0.15s; }
+    .detail-hero-content > *:nth-child(2) { animation-delay: 0.3s; }
+    .detail-hero-content > *:nth-child(3) { animation-delay: 0.45s; }
+    @keyframes fadeSlideUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .detail-section {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeSlideUp 0.7s ease forwards;
+    }
+    .detail-section:nth-of-type(1) { animation-delay: 0.5s; }
+    .detail-section:nth-of-type(2) { animation-delay: 0.6s; }
+    .detail-section:nth-of-type(3) { animation-delay: 0.7s; }
+    .detail-section:nth-of-type(4) { animation-delay: 0.8s; }
+  </style>
+</head>
+
+<body data-theme="dark">
+
+  <!-- Ambient Glows -->
+  <div class="detail-glow-1"></div>
+  <div class="detail-glow-2"></div>
+
+  <!-- Top Bar -->
+  <nav class="detail-topbar">
+    <a href="../index.html" class="detail-back-btn">
+      <svg viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+      Back to Portfolio
+    </a>
+    <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle theme">
+      <svg class="moon" viewBox="0 0 24 24" width="20" height="20"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <svg class="sun" viewBox="0 0 24 24" width="20" height="20"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    </button>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="detail-hero">
+    <div class="detail-hero-bg"></div>
+    <div class="detail-hero-overlay"></div>
+    <div class="detail-hero-content">
+      <div class="detail-hero-badge">
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        STATE HONOUR RECIPIENT
+      </div>
+      <h1 class="detail-hero-title">"Aralu Mallige" <span class="text-gradient">State Award</span></h1>
+      <p class="detail-hero-subtitle">Awarded by the prestigious Jnana Mandara Academy, Bangalore, for outstanding professional and cultural contribution in classical performing arts.</p>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <main class="detail-content">
+
+    <!-- Overview -->
+    <section class="detail-section">
+      <h2 class="detail-section-title">Overview</h2>
+      <p class="detail-text">
+        The "Aralu Mallige" State Award is one of the most distinguished recognitions bestowed upon artists who have made exceptional contributions to the preservation and promotion of India's classical performing arts. Named after the fragrant jasmine bud — symbolizing the blooming of tradition — this honour celebrates individuals whose artistry has helped keep the cultural heritage of Karnataka vibrantly alive.
+      </p>
+      <p class="detail-text">
+        Pratham Rai received this award in recognition of his sustained commitment to classical art forms, his dedication to nurturing the next generation of performers, and his efforts in bringing traditional art to modern audiences through innovative performances and community engagement.
+      </p>
+    </section>
+
+    <!-- About the Academy -->
+    <section class="detail-section">
+      <h2 class="detail-section-title">Jnana Mandara Academy</h2>
+      <p class="detail-text">
+        The Jnana Mandara Academy, headquartered in Bangalore, is a revered institution dedicated to the advancement of knowledge, arts, and culture across Karnataka. Founded with the vision of identifying and honouring exemplary talent in fields ranging from literature and theater to music and dance, the academy has been instrumental in creating platforms where traditional artists receive the recognition they deserve.
+      </p>
+      <p class="detail-text">
+        The academy's annual awards ceremony is a celebrated event that brings together scholars, artists, cultural leaders, and dignitaries from across the state. Being recognised by this institution places Pratham among a distinguished lineage of artists who have shaped the cultural narrative of coastal Karnataka and beyond.
+      </p>
+    </section>
+
+    <!-- Significance -->
+    <section class="detail-section">
+      <h2 class="detail-section-title">What This Award Means for Cultural Preservation</h2>
+      <p class="detail-text">
+        In an era where traditional art forms face existential challenges from rapid modernisation and dwindling audience interest, awards like the "Aralu Mallige" serve a crucial purpose. They shine a spotlight on artists who refuse to let ancient traditions fade, artists who bridge the gap between centuries-old practices and contemporary expression.
+      </p>
+      <p class="detail-text">
+        For Pratham, receiving this award is not merely a personal achievement but a validation of a larger mission — to ensure that the dance-drama traditions, the elaborate costumes, the soul-stirring music, and the timeless mythological narratives of coastal Karnataka continue to inspire generations to come. It represents the collective effort of gurus, fellow performers, families, and communities who keep these art forms breathing.
+      </p>
+      <p class="detail-text">
+        The recognition also amplifies visibility for these art forms at a state and national level, encouraging young aspiring artists to take up traditional performance arts with pride and purpose.
+      </p>
+    </section>
+
+    <!-- Gallery -->
+    <section class="detail-section">
+      <h2 class="detail-section-title">Gallery</h2>
+      <div class="detail-gallery">
+        <div class="detail-gallery-item">
+          <img src="../assets/hero_portrait.png" alt="Award ceremony moment" loading="lazy">
+          <div class="detail-gallery-caption">Gallery Image 1</div>
+        </div>
+        <div class="detail-gallery-item">
+          <img src="../assets/hero_portrait.png" alt="With Jnana Mandara Academy" loading="lazy">
+          <div class="detail-gallery-caption">Gallery Image 2</div>
+        </div>
+        <div class="detail-gallery-item">
+          <img src="../assets/hero_portrait.png" alt="Cultural celebration" loading="lazy">
+          <div class="detail-gallery-caption">Gallery Image 3</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Highlights -->
+    <section class="detail-section">
+      <div class="detail-highlights glass-card">
+        <h3 class="detail-highlights-title">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          Key Highlights
+        </h3>
+        <ul>
+          <li>Recognised for outstanding professional and cultural contribution in classical performing arts</li>
+          <li>Awarded by the esteemed Jnana Mandara Academy, Bangalore — one of Karnataka's premier cultural institutions</li>
+          <li>Honoured among a distinguished lineage of artists dedicated to preserving traditional art forms</li>
+          <li>Contributed to bringing traditional performing arts to modern platforms and wider audiences</li>
+          <li>Active role in mentoring young artists and ensuring knowledge transmission to the next generation</li>
+          <li>Represents the cultural heritage and artistic legacy of coastal Karnataka at the state level</li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="detail-footer">
+    <a href="../index.html" class="detail-footer-back">
+      <svg viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+      Back to Portfolio
+    </a>
+    <p class="detail-footer-copy">&copy; 2025 Pratham Rai. All rights reserved.</p>
+  </footer>
+
+  <!-- Theme Toggle Script -->
+  <script>
+    (function() {
+      const toggle = document.getElementById('theme-toggle') || document.getElementById('themeToggle');
+      const setTheme = (theme) => {
+        document.documentElement.setAttribute('data-theme', theme);
+        document.body.setAttribute('data-theme', theme);
+        localStorage.setItem('pratham-theme', theme);
+      };
+      
+      const saved = localStorage.getItem('pratham-theme') || 'dark';
+      setTheme(saved);
+
+      if (toggle) {
+        toggle.addEventListener('click', () => {
+          const current = document.documentElement.getAttribute('data-theme') || 'dark';
+          const next = current === 'dark' ? 'light' : 'dark';
+          setTheme(next);
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

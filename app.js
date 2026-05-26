@@ -516,7 +516,42 @@
   });
 
   // ──────────────────────────────────────────────
-  // 12. INITIAL CALLS
+  // 12. CARD CLICK NAVIGATION HANDLER
+  // ──────────────────────────────────────────────
+
+  const projectCards = document.querySelectorAll('.project-card');
+  projectCards.forEach(card => {
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', (e) => {
+      // Don't intercept click if clicking directly on a link or button, or an SVG inside a link/button
+      if (e.target.closest('a') || e.target.closest('button')) return;
+      const link = card.querySelector('.project-more-link');
+      if (link) {
+        const href = link.getAttribute('href');
+        if (href && href !== '#') {
+          window.location.href = href;
+        }
+      }
+    });
+  });
+
+  const honorCards = document.querySelectorAll('.honor-card');
+  honorCards.forEach(card => {
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', (e) => {
+      if (e.target.closest('a') || e.target.closest('button')) return;
+      const link = card.querySelector('.honor-more-link');
+      if (link) {
+        const href = link.getAttribute('href');
+        if (href && href !== '#') {
+          window.location.href = href;
+        }
+      }
+    });
+  });
+
+  // ──────────────────────────────────────────────
+  // 13. INITIAL CALLS
   // ──────────────────────────────────────────────
 
   handleHeaderScroll();
