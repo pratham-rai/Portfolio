@@ -401,11 +401,13 @@
   });
 
   // ──────────────────────────────────────────────
-  // 9. CONTACT FORM HANDLER
+  // 9. CONTACT FORM HANDLER (FormSubmit.co Integration)
   // ──────────────────────────────────────────────
 
   const contactForm = document.getElementById('contact-form-handler');
   const successAlert = document.getElementById('success-alert');
+  const submitBtn = contactForm.querySelector('button[type="submit"]');
+  const originalBtnHTML = submitBtn.innerHTML;
 
   contactForm.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -417,26 +419,57 @@
 
     if (!name || !email || !subject || !message) return;
 
-    // Save to localStorage as a simple message log
-    const messages = JSON.parse(localStorage.getItem('pratham-messages') || '[]');
-    messages.push({
-      name,
-      email,
-      subject,
-      message,
-      timestamp: new Date().toISOString()
+    // Show Loading state
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = 'Sending Message...';
+
+    // Submit to FormSubmit.co via AJAX
+    fetch('https://formsubmit.co/ajax/raipratham12@gmail.com', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        Name: name,
+        Email: email,
+        Subject: subject,
+        Message: message
+      })
+    })
+    .then(response => response.json())
+    .then(data => {
+      // Save local backup as well
+      const messages = JSON.parse(localStorage.getItem('pratham-messages') || '[]');
+      messages.push({
+        name,
+        email,
+        subject,
+        message,
+        timestamp: new Date().toISOString()
+      });
+      localStorage.setItem('pratham-messages', JSON.stringify(messages));
+
+      // Show success toast
+      successAlert.classList.add('show');
+      setTimeout(() => {
+        successAlert.classList.remove('show');
+      }, 4000);
+
+      // Reset form
+      contactForm.reset();
+    })
+    .catch(error => {
+      console.error('Error submitting form:', error);
+      alert('Failed to transmit message. Please contact directly at raipratham12@gmail.com.');
+    })
+    .finally(() => {
+      // Restore button status
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = originalBtnHTML;
     });
-    localStorage.setItem('pratham-messages', JSON.stringify(messages));
-
-    // Show success toast
-    successAlert.classList.add('show');
-    setTimeout(() => {
-      successAlert.classList.remove('show');
-    }, 4000);
-
-    // Reset form
-    contactForm.reset();
   });
+
 
   // ──────────────────────────────────────────────
   // 10. TIMELINE SCROLL PROGRESS BAR
