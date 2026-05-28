@@ -36,8 +36,25 @@
     }
 
     update() {
+      // Base movement
       this.x += this.speedX;
       this.y += this.speedY;
+
+      // Magnetic mouse repulsion force
+      const dx = this.x - mouse.x;
+      const dy = this.y - mouse.y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      const forceRadius = 160;
+
+      if (dist < forceRadius) {
+        const force = (forceRadius - dist) / forceRadius;
+        const pushDirectionX = dx / (dist || 1);
+        const pushDirectionY = dy / (dist || 1);
+        const pushStrength = force * 2.2; // Smooth push velocity
+
+        this.x += pushDirectionX * pushStrength;
+        this.y += pushDirectionY * pushStrength;
+      }
 
       // Wrap around edges
       if (this.x > canvas.width + 10) this.x = -10;
@@ -63,6 +80,28 @@
     for (let i = 0; i < count; i++) {
       particles.push(new Particle());
     }
+  }
+
+  function drawMouseGlow() {
+    if (mouse.x < 0 || mouse.y < 0) return;
+    const isDark = document.documentElement.getAttribute('data-theme') !== 'light';
+    const glowRadius = 240;
+    const gradient = ctx.createRadialGradient(mouse.x, mouse.y, 0, mouse.x, mouse.y, glowRadius);
+
+    if (isDark) {
+      gradient.addColorStop(0, 'rgba(99, 102, 241, 0.12)'); // Core indigo glow
+      gradient.addColorStop(0.5, 'rgba(168, 85, 247, 0.04)'); // Outer soft purple tint
+      gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
+    } else {
+      gradient.addColorStop(0, 'rgba(56, 189, 248, 0.06)'); // Core sky blue glow
+      gradient.addColorStop(0.5, 'rgba(99, 102, 241, 0.02)'); // Outer soft lavender tint
+      gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
+    }
+
+    ctx.beginPath();
+    ctx.arc(mouse.x, mouse.y, glowRadius, 0, Math.PI * 2);
+    ctx.fillStyle = gradient;
+    ctx.fill();
   }
 
   function drawConnections() {
@@ -109,6 +148,7 @@
 
   function animateCanvas() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    drawMouseGlow();
     particles.forEach(p => {
       p.update();
       p.draw();
@@ -130,14 +170,16 @@
     animateCanvas();
   });
 
-  canvas.addEventListener('mousemove', (e) => {
+  window.addEventListener('mousemove', (e) => {
     mouse.x = e.clientX;
     mouse.y = e.clientY;
   });
 
-  canvas.addEventListener('mouseleave', () => {
-    mouse.x = -500;
-    mouse.y = -500;
+  window.addEventListener('mouseout', (e) => {
+    if (!e.relatedTarget && !e.toElement) {
+      mouse.x = -500;
+      mouse.y = -500;
+    }
   });
 
   startCanvas();
